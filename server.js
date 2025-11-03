@@ -75,3 +75,7 @@ console.log('The magic happens on port ' + port);
 // npm install express-session
 // ejs	Template engine used for rendering .ejs view files 
 // npm install ejs
+// passport-local	Provides the “local” login strategy (email/password)	
+// npm install passport-local
+// bcrypt (or bcryptjs)	Encrypts passwords before saving them	
+// npm install bcrypt

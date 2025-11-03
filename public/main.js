@@ -1,4 +1,5 @@
 var thumbUp = document.getElementsByClassName("fa-thumbs-up");
+var thumbDown = document.getElementsByClassName("fa-thumbs-down");
 var trash = document.getElementsByClassName("fa-trash");
 
 Array.from(thumbUp).forEach(function(element) {
@@ -31,7 +32,7 @@ Array.from(thumbDown).forEach(function(element) {
         const name = this.parentNode.parentNode.childNodes[1].innerText //name
         const msg = this.parentNode.parentNode.childNodes[3].innerText //msg
         const counter = parseFloat(this.parentNode.parentNode.childNodes[5].innerText) //counter
-        fetch('messages/down', { // give information from click to server.js app.put('/messages/down')
+        fetch('messages', { // give information from click to server.js app.put('/messages/down')
           method: 'put',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({ //sending to app.put('/messages/down') in key:value pairs

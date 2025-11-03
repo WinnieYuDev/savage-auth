@@ -52,7 +52,7 @@ module.exports = function(app, passport, db) {
     })
 
     //added thumbs down feature
-    app.put('/messages/down', (req, res) => { console.log("Thumbs Down Before Response", req.body)
+    app.put('/messages', (req, res) => { console.log("Thumbs Down Before Response", req.body)
       db.collection('messages')
       .findOneAndUpdate({name: req.body.A, msg: req.body.B}, {
         $set: {

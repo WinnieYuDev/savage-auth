@@ -2,7 +2,7 @@
   "name": "node-authentication",
   "main": "server.js",
   "dependencies": {
-    "bcrypt": "*",
+    "bcrypt": "^6.0.0",
     "bcrypt-nodejs": "^0.0.3",
     "body-parser": "^1.20.3",
     "connect-flash": "^0.1.1",
