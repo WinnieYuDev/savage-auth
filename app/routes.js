@@ -51,6 +51,22 @@ module.exports = function(app, passport, db) {
       })
     })
 
+    //added thumbs down feature
+    app.put('/messages/down', (req, res) => { console.log("Thumbs Down Before Response", req.body)
+      db.collection('messages')
+      .findOneAndUpdate({name: req.body.A, msg: req.body.B}, {
+        $set: {
+          thumbUp:req.body.C - 1
+        }
+      }, {
+        sort: {_id: -1},
+        upsert: true
+      }, (err, result) => {
+        if (err) return res.send(err)
+        res.send(result)
+      })
+    })
+
     app.delete('/messages', (req, res) => {
       db.collection('messages').findOneAndDelete({name: req.body.name, msg: req.body.msg}, (err, result) => {
         if (err) return res.send(500, err)
