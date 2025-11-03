@@ -1,7 +1,8 @@
 module.exports = function(app, passport, db) {
 
 // normal routes ===============================================================
-
+const express = require('express'); // Add this at the top
+const router = express.Router();
     // show the home page (will also have our login links)
     app.get('/', function(req, res) {
         res.render('index.ejs');
@@ -36,15 +37,15 @@ module.exports = function(app, passport, db) {
       })
     })
 
-    app.put('/messages', (req, res) => {
+    app.put('/messages/thumbUp', (req, res) => {
       db.collection('messages')
       .findOneAndUpdate({name: req.body.name, msg: req.body.msg}, {
         $set: {
-          thumbUp:req.body.thumbUp + 1
+          thumbUp:req.body.counter + 1
         }
       }, {
         sort: {_id: -1},
-        upsert: true
+        upsert: false
       }, (err, result) => {
         if (err) return res.send(err)
         res.send(result)
@@ -52,15 +53,15 @@ module.exports = function(app, passport, db) {
     })
 
     //added thumbs down feature
-    app.put('/messages', (req, res) => { console.log("Thumbs Down Before Response", req.body)
+    app.put('/messages/thumbDown', (req, res) => { console.log("Thumbs Down Before Response", req.body)
       db.collection('messages')
-      .findOneAndUpdate({name: req.body.A, msg: req.body.B}, {
+      .findOneAndUpdate({name: req.body.name, msg: req.body.msg}, {
         $set: {
-          thumbUp:req.body.C - 1
+          thumbUp:req.body.counter - 1
         }
       }, {
         sort: {_id: -1},
-        upsert: true
+        upsert: false
       }, (err, result) => {
         if (err) return res.send(err)
         res.send(result)
