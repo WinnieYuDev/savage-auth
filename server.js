@@ -52,3 +52,26 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 // launch ======================================================================
 app.listen(port);
 console.log('The magic happens on port ' + port);
+
+//notes: to run server, use command "node server.js" in terminal
+// Dependency	What it’s for	Install command
+// express	The main web framework — handles routes, requests, and responses	
+// npm install express
+// mongodb	The official MongoDB driver (used to connect directly to the database)	
+// npm install mongodb
+// mongoose	MongoDB object modeling tool — simplifies database work	
+// npm install mongoose
+// passport	Handles authentication (login, signup, sessions, etc.)	
+// npm install passport
+// connect-flash	Used to store and display temporary messages (like “Login failed”)	
+// npm install connect-flash
+// morgan	Logs every request in the terminal — helpful for debugging	
+// npm install morgan
+// cookie-parser	Lets Express read and handle cookies	
+// npm install cookie-parser
+// body-parser	Parses data sent through HTML forms or JSON (now built into Express but still used sometimes)	
+// npm install body-parser
+// express-session	Manages user sessions (used by Passport to remember logged-in users)	
+// npm install express-session
+// ejs	Template engine used for rendering .ejs view files 
+// npm install ejs
